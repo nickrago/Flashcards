@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //round the corners
-        frontLabel.layer.cornerRadius = 20.0;
+        frontLabel.layer.cornerRadius = 20.1;
         frontLabel.clipsToBounds = true;
         backLabel.layer.cornerRadius = 20.0;
         backLabel.clipsToBounds = true;
