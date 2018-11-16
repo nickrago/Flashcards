@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var btnOptionThree: UIButton!
     
     
+    var flashcardsController: ViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +53,11 @@ class ViewController: UIViewController {
         else{
             frontLabel.isHidden = true;
         }
+    }
+    
+    func updateFlashcard(question: String, answer: String) {
+        frontLabel.text = "question"
+        backLabel.text = "swer"
     }
     
     @IBAction func didTapOptionOne(_ sender: Any) {
