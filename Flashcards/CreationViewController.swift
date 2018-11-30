@@ -15,8 +15,17 @@ class CreationViewController: UIViewController {
     @IBOutlet weak var questionTextField: UITextField!
     @IBOutlet weak var answerTextField: UITextField!
     
+    @IBOutlet weak var extraOne: UITextField!
+    @IBOutlet weak var extraTwo: UITextField!
+    
+    var initialQuestion: String?
+    var initialAnswer: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        questionTextField.text = initialQuestion
+        answerTextField.text = initialAnswer
 
         // Do any additional setup after loading the view.
     }
@@ -34,10 +43,23 @@ class CreationViewController: UIViewController {
     @IBAction func didTapOnDone(_ sender: Any) {
         let questionText = questionTextField.text
         let answerText = answerTextField.text
+        let extraOneText = extraOne.text
+        let extraTwoText = extraTwo.text
         
-        flashcardsController.updateFlashcard(question: questionText!, answer: answerText!)
         
-        dismiss(animated:true)
+        if (questionText == nil || answerText == nil || extraOneText == nil || extraTwoText == nil || questionText!.isEmpty || answerText!.isEmpty || extraOneText!.isEmpty || extraTwoText!.isEmpty){
+            let alert = UIAlertController(title: "Missing Text", message: "You need to enter a question, an answer, and two wrong answers", preferredStyle: UIAlertControllerStyle.alert)
+            let okAction = UIAlertAction(title: "OK", style: .default)
+            alert.addAction(okAction)
+            present(alert, animated: true)
+        }
+        else{
+            flashcardsController.updateFlashcard(question: questionText!, answer: answerText!, extraAnswerOne: extraOneText!, extraAnswerTwo: extraTwoText!)
+            
+            dismiss(animated:true)
+        }
+        
+        
     }
     
     /*
