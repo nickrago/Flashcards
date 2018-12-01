@@ -131,6 +131,7 @@ class ViewController: UIViewController {
     
     @IBAction func didTapOptionTwo(_ sender: Any) {
         btnOptionTwo.isHidden = true;
+        //
     }
     
     @IBAction func didTapOptionThree(_ sender: Any) {
