@@ -18,6 +18,8 @@ class CreationViewController: UIViewController {
     @IBOutlet weak var extraOne: UITextField!
     @IBOutlet weak var extraTwo: UITextField!
     
+    
+    
     var initialQuestion: String?
     var initialAnswer: String?
     
@@ -54,10 +56,15 @@ class CreationViewController: UIViewController {
             present(alert, animated: true)
         }
         else{
-            flashcardsController.updateFlashcard(question: questionText!, answer: answerText!, extraAnswerOne: extraOneText!, extraAnswerTwo: extraTwoText!)
+            var isExisting = false
+            if initialQuestion != nil{
+                isExisting = true
+            }
+            flashcardsController.updateFlashcard(question: questionText!, answer: answerText!, extraAnswerOne: extraOneText!, extraAnswerTwo: extraTwoText!, isExisting: true)
             
             dismiss(animated:true)
         }
+        
         
         
     }
